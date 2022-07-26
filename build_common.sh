@@ -20,6 +20,7 @@ echo "EDK2 Path: ${_EDK2}"
 echo "EDK2_PLATFORMS Path: ${_EDK2_PLATFORMS}"
 export CROSS_COMPILE="${CROSS_COMPILE:-aarch64-linux-gnu-}"
 export GCC5_AARCH64_PREFIX="${CROSS_COMPILE}"
+echo "CROSS COPMILE:$CROSS_COMPILE"
 export CLANG38_AARCH64_PREFIX="${CROSS_COMPILE}"
 export PACKAGES_PATH="$_EDK2:$_EDK2_PLATFORMS:$_SIMPLE_INIT:$PWD"
 export WORKSPACE="${PWD}"
@@ -27,7 +28,7 @@ export WORKSPACE="${PWD}"
 . "${_EDK2}"/edksetup.sh
 
 mkdir -p "${_SIMPLE_INIT}/build"
-sudo bash "${_SIMPLE_INIT}/scripts/gen-rootfs-source.sh" \
+bash "${_SIMPLE_INIT}/scripts/gen-rootfs-source.sh" \
 	"${_SIMPLE_INIT}" \
 	"${_SIMPLE_INIT}/build"
 
